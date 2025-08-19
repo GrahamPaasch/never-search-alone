@@ -1,8 +1,342 @@
-<body>
-  <h2>1. What I Love and Hate Doing</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Journey & Vision</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <h3>🌟 Love Doing:</h3>
-  <ul>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated background particles */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.15), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.1), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.15), transparent),
+                radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.1), transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: sparkle 20s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes sparkle {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-100px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            border-radius: 2px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: 300;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1.5rem 0;
+            padding: 1rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-left: 5px solid #3498db;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid #ecf0f1;
+            position: relative;
+        }
+
+        h3::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            border-radius: 1px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 1rem 0;
+            padding: 1.2rem;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-left-color: #3498db;
+        }
+
+        .love-section li {
+            border-left-color: #27ae60;
+        }
+
+        .love-section li:hover {
+            border-left-color: #2ecc71;
+            background: linear-gradient(135deg, #ffffff, #f8fff9);
+        }
+
+        .hate-section li {
+            border-left-color: #e74c3c;
+        }
+
+        .hate-section li:hover {
+            border-left-color: #c0392b;
+            background: linear-gradient(135deg, #ffffff, #fff8f8);
+        }
+
+        .strengths-section li {
+            border-left-color: #f39c12;
+        }
+
+        .strengths-section li:hover {
+            border-left-color: #e67e22;
+            background: linear-gradient(135deg, #ffffff, #fffaf5);
+        }
+
+        .weaknesses-section li {
+            border-left-color: #9b59b6;
+        }
+
+        .weaknesses-section li:hover {
+            border-left-color: #8e44ad;
+            background: linear-gradient(135deg, #ffffff, #faf9ff);
+        }
+
+        strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #2980b9;
+            border-bottom-color: #2980b9;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(45deg, #3498db, #9b59b6, #e74c3c, #f39c12);
+            margin: 3rem 0;
+            border-radius: 1px;
+            opacity: 0.7;
+        }
+
+        .requirements-section {
+            background: linear-gradient(135deg, #fff5f5, #f0fff4);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px solid #ecf0f1;
+        }
+
+        .never-section {
+            background: linear-gradient(135deg, #fff8f8, #f8f8ff);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px solid #ecf0f1;
+        }
+
+        .goals-section {
+            background: linear-gradient(135deg, #f8fff8, #fff8e1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px solid #ecf0f1;
+        }
+
+        /* Floating action elements */
+        .floating-element {
+            position: fixed;
+            right: 2rem;
+            bottom: 2rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .floating-element:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .floating-element {
+                right: 1rem;
+                bottom: 1rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            z-index: 1001;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Career Journey & Vision</h1>
+            <p class="subtitle">Building a Meaningful Future in Technology</p>
+        </div>
+
+        <div class="love-section">
+            <h2>🌟 What I Love and Hate Doing</h2>
+
+            <h3>🌟 Love Doing:</h3>
+            <ul>
     <li><strong>Peaceful Quiet Solitude:</strong> Being in an environment where
     I can think deeply about things and am not constantly distracted.</li>
     <li><strong>Purposeful Impact:</strong> Tackling critical issues such as AI
@@ -37,10 +371,12 @@
       Supportive of mental health. Anti-authoritarianism.</li>
     <li><strong>Meaningful Outcomes:</strong> Engaging in work producing
       tangible, impactful results addressing critical societal issues.</li>
-  </ul>
+            </ul>
+        </div>
 
-  <h3>🚫 Hate Doing:</h3>
-  <ul>
+        <div class="hate-section">
+            <h3>🚫 Hate Doing:</h3>
+            <ul>
     <li><strong>Meaningless Tasks:</strong> Jobs with arbitrary goals lacking
       personal significance; false promises of autonomy undermined by constant
       criticism.</li>
@@ -73,33 +409,35 @@
       impossible goals, resistant to feedback or realistic adjustments.</li>
     <li><strong>Pointless Participation:</strong> Engaging in tasks without
       meaningful impact, feeling like participation in a meaningless cult.</li>
-  </ul>
+            </ul>
+        </div>
 
-<hr/>
-<h2>For me to take a job it must...</h2>
-<strong>improve my quality of life.</strong> There's a lot of room for
-      improvement in my life right now, but I'm envisioning a job that is either
-      fully remote or where I have only a short walk to and from the office in a
-      town that shares my passions.
-<br /><br />
-<strong>further my career goals.</strong> I am an experienced technology
-      professional, entering my 2nd decade of experience. I want by the end of
-      this 2nd decade to earn more than $200,000/year in salary, achieve an
-      expert level set of skills, either via CCIE/JNCIE certification or a master's
-      degree, and stay relevant in the dawning of the age of AI.
-<br /><br />
-<strong>respect my extra challenges in life.</strong> I have a Bipolar 1
-      diagnosis. I need reasonable accommodations in order to have regular doctor
-      appointments, pick up my medications, and maintain basic health habits in life.
-      Most importantly I need to make sleep the number one priority in my life and
-      not sacrifice it for work. I need reasonable accommodations and not immediate
-      dismissal or disciplinary actions for behaviors where disability is at play. I
-      understand it is my responsibility to properly manage my health. This is
-      why I am so careful in which jobs I will and will not take.
-<hr/>
+        <div class="requirements-section">
+            <h2>✅ For me to take a job it must...</h2>
+            <p><strong>improve my quality of life.</strong> There's a lot of room for
+            improvement in my life right now, but I'm envisioning a job that is either
+            fully remote or where I have only a short walk to and from the office in a
+            town that shares my passions.</p>
+            
+            <p><strong>further my career goals.</strong> I am an experienced technology
+            professional, entering my 2nd decade of experience. I want by the end of
+            this 2nd decade to earn more than $200,000/year in salary, achieve an
+            expert level set of skills, either via CCIE/JNCIE certification or a master's
+            degree, and stay relevant in the dawning of the age of AI.</p>
+            
+            <p><strong>respect my extra challenges in life.</strong> I have a Bipolar 1
+            diagnosis. I need reasonable accommodations in order to have regular doctor
+            appointments, pick up my medications, and maintain basic health habits in life.
+            Most importantly I need to make sleep the number one priority in my life and
+            not sacrifice it for work. I need reasonable accommodations and not immediate
+            dismissal or disciplinary actions for behaviors where disability is at play. I
+            understand it is my responsibility to properly manage my health. This is
+            why I am so careful in which jobs I will and will not take.</p>
+        </div>
 
-  <h2>I would never take a job that...</h2>
-  <ul>
+        <div class="never-section">
+            <h2>🚨 I would never take a job that...</h2>
+            <ul>
     <li><strong>separates me from my passions.</strong> I'm a passionate
     musician and juggler, and I want to be able to pursue those interests
     alongside my work, meaning I need to be done with work by 6pm to attend
@@ -123,14 +461,15 @@
     <li><strong>does not respect sleep.</strong> I cannot be on call 24/7. I have
     to maintain a regular sleep schedule and other standard healthy habits in
     order to manage my disability.</li>
-  </ul>
+            </ul>
+        </div>
 
-  <hr/>
+        <div class="strengths-weaknesses-section">
+            <h2>💪 Your Strengths and Weaknesses</h2>
 
-  <h2>4. Your Strengths and Weaknesses</h2>
-
-  <h3>Strengths</h3>
-  <ul>
+            <div class="strengths-section">
+                <h3>Strengths</h3>
+                <ul>
     <li><strong>Technical Ability:</strong> I have a genuine passion for
       technology and a strong aptitude for learning new skills that enhance my
       work.</li>
@@ -160,10 +499,12 @@
       challenges. I regularly see relevant, licensed, and qualified
       professionals for support. I do my best to be a good patient and not
       have any unforced errors in my treatment.</li>
-  </ul>
+                </ul>
+            </div>
 
-  <h3>Weaknesses</h3>
-  <ul>
+            <div class="weaknesses-section">
+                <h3>Weaknesses</h3>
+                <ul>
     <li><strong>Social Connectiveness:</strong> I am mired by a number of mental
       health challenges, which makes me the perpetual odd man out. Included in
       my diagnoses is excoration disorder, which can be upsetting for others to
@@ -184,12 +525,13 @@
       work, values alignment, health management compatibility) limit immediate
       opportunities. May not align well with what the job market has to offer,
       especially in the fields where I have the most qualifications.</li>
-  </ul>
+                </ul>
+            </div>
+        </div>
 
-  <hr/>
-
-  <h2>5. Your Career Goals (Short-Term and Long-Term)</h2>
-  <ul>
+        <div class="goals-section">
+            <h2>🎯 Your Career Goals (Short-Term and Long-Term)</h2>
+            <ul>
     <li><strong>Short-Term Career Goal - Pivot Away from Traditional Network
       Engineering:</strong> Transition into modern future proof roles like
       AI Engineering, AI Infrastructure, Cloud Engineering, or Cyber Security.
@@ -217,3 +559,82 @@
       failures with education and direction may have hindered my ability to
       achieve similar success. I believe in education. I think continuing my 
       formal education may be an important step forward.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="floating-element" onclick="scrollToTop()" title="Back to top">
+        ↑
+    </div>
+
+    <script>
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrollPercentage + '%';
+        });
+
+        // Smooth scroll to top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add smooth scroll behavior to all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add intersection observer for animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for scroll animations
+        document.querySelectorAll('h2, h3, li').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add typing effect to main title
+        const title = document.querySelector('h1');
+        const titleText = title.textContent;
+        title.textContent = '';
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < titleText.length) {
+                title.textContent += titleText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        
+        setTimeout(typeWriter, 500);
+    </script>
+</body>
+</html>
