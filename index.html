@@ -15,9 +15,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #2c3e50;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             min-height: 100vh;
             position: relative;
+            overflow-x: hidden;
         }
 
         /* Animated background particles */
@@ -29,16 +30,39 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.15), transparent),
-                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.1), transparent),
-                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.2), transparent),
-                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.15), transparent),
-                radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.1), transparent);
+                radial-gradient(3px 3px at 20px 30px, rgba(255,255,255,0.2), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,223,0,0.3), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 130px 80px, rgba(0,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 160px 30px, rgba(255,105,180,0.25), transparent),
+                radial-gradient(2px 2px at 200px 60px, rgba(144,238,144,0.2), transparent);
             background-repeat: repeat;
-            background-size: 200px 100px;
-            animation: sparkle 20s linear infinite;
+            background-size: 250px 120px;
+            animation: sparkle 15s linear infinite;
             pointer-events: none;
             z-index: 1;
+        }
+
+        /* Floating geometric shapes */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
         }
 
         @keyframes sparkle {
@@ -50,62 +74,119 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
             position: relative;
             z-index: 2;
             margin-top: 2rem;
             margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+            pointer-events: none;
+            z-index: -1;
         }
 
         .header {
             text-align: center;
             margin-bottom: 3rem;
-            padding: 2rem;
-            background: linear-gradient(45deg, #3498db, #9b59b6);
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: headerShine 3s infinite;
+        }
+
+        @keyframes headerShine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
         }
 
         .header::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(45deg, #3498db, #9b59b6);
-            border-radius: 2px;
+            width: 150px;
+            height: 6px;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+            border-radius: 3px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
+            50% { transform: translateX(-50%) scale(1.1); opacity: 0.8; }
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            text-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+            letter-spacing: -1px;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #7f8c8d;
             font-weight: 300;
+            margin-top: 1rem;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
         }
 
         h2 {
             color: #2c3e50;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             margin: 2.5rem 0 1.5rem 0;
-            padding: 1rem;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-left: 5px solid #3498db;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef, #f8f9fa);
+            border-left: 6px solid transparent;
+            border-image: linear-gradient(45deg, #667eea, #764ba2) 1;
+            border-radius: 15px;
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.8);
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        h2:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 12px 35px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.9);
         }
 
         h2::before {
@@ -115,9 +196,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.08), transparent);
             transform: translateX(-100%);
-            animation: shimmer 3s infinite;
+            animation: shimmer 4s infinite;
         }
 
         @keyframes shimmer {
@@ -127,22 +208,28 @@
 
         h3 {
             color: #34495e;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin: 1.5rem 0 1rem 0;
-            padding: 0.5rem 0;
-            border-bottom: 2px solid #ecf0f1;
+            padding: 0.8rem 0;
+            border-bottom: 3px solid #ecf0f1;
             position: relative;
+            font-weight: 600;
         }
 
         h3::before {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: -3px;
             left: 0;
-            width: 50px;
-            height: 2px;
-            background: linear-gradient(45deg, #e74c3c, #f39c12);
-            border-radius: 1px;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        h3:hover::before {
+            width: 120px;
         }
 
         ul {
@@ -151,56 +238,93 @@
         }
 
         li {
-            margin: 1rem 0;
-            padding: 1.2rem;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid transparent;
-            transition: all 0.3s ease;
+            margin: 1.2rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #fafbfc);
+            border-radius: 16px;
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.06),
+                0 0 0 1px rgba(255, 255, 255, 0.8);
+            border-left: 5px solid transparent;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            overflow: hidden;
+        }
+
+        li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        li:hover::before {
+            transform: translateX(100%);
         }
 
         li:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            border-left-color: #3498db;
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 
+                0 12px 35px rgba(0, 0, 0, 0.12),
+                0 0 0 1px rgba(255, 255, 255, 0.9);
+            border-left-color: #667eea;
         }
 
         .love-section li {
             border-left-color: #27ae60;
+            background: linear-gradient(135deg, #ffffff, #f9fffc);
         }
 
         .love-section li:hover {
             border-left-color: #2ecc71;
-            background: linear-gradient(135deg, #ffffff, #f8fff9);
+            background: linear-gradient(135deg, #ffffff, #f0fff4);
+            box-shadow: 
+                0 12px 35px rgba(46, 204, 113, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.9);
         }
 
         .hate-section li {
             border-left-color: #e74c3c;
+            background: linear-gradient(135deg, #ffffff, #fffcfc);
         }
 
         .hate-section li:hover {
             border-left-color: #c0392b;
-            background: linear-gradient(135deg, #ffffff, #fff8f8);
+            background: linear-gradient(135deg, #ffffff, #fff5f5);
+            box-shadow: 
+                0 12px 35px rgba(192, 57, 43, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.9);
         }
 
         .strengths-section li {
             border-left-color: #f39c12;
+            background: linear-gradient(135deg, #ffffff, #fffefb);
         }
 
         .strengths-section li:hover {
             border-left-color: #e67e22;
-            background: linear-gradient(135deg, #ffffff, #fffaf5);
+            background: linear-gradient(135deg, #ffffff, #fffbf0);
+            box-shadow: 
+                0 12px 35px rgba(230, 126, 34, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.9);
         }
 
         .weaknesses-section li {
             border-left-color: #9b59b6;
+            background: linear-gradient(135deg, #ffffff, #fefcff);
         }
 
         .weaknesses-section li:hover {
             border-left-color: #8e44ad;
-            background: linear-gradient(135deg, #ffffff, #faf9ff);
+            background: linear-gradient(135deg, #ffffff, #faf7ff);
+            box-shadow: 
+                0 12px 35px rgba(142, 68, 173, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.9);
         }
 
         strong {
@@ -209,48 +333,117 @@
         }
 
         a {
-            color: #3498db;
+            color: #667eea;
             text-decoration: none;
-            border-bottom: 1px solid transparent;
+            border-bottom: 2px solid transparent;
             transition: all 0.3s ease;
+            position: relative;
+            font-weight: 500;
+        }
+
+        a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
         }
 
         a:hover {
-            color: #2980b9;
-            border-bottom-color: #2980b9;
+            color: #764ba2;
+        }
+
+        a:hover::before {
+            width: 100%;
         }
 
         hr {
             border: none;
-            height: 2px;
-            background: linear-gradient(45deg, #3498db, #9b59b6, #e74c3c, #f39c12);
+            height: 3px;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
+            background-size: 400% 400%;
             margin: 3rem 0;
-            border-radius: 1px;
-            opacity: 0.7;
+            border-radius: 2px;
+            opacity: 0.8;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .requirements-section {
-            background: linear-gradient(135deg, #fff5f5, #f0fff4);
-            padding: 2rem;
-            border-radius: 15px;
+            background: linear-gradient(135deg, #fff5f5, #f0fff4, #f0f8ff);
+            padding: 2.5rem;
+            border-radius: 20px;
             margin: 2rem 0;
-            border: 2px solid #ecf0f1;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .requirements-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #27ae60, #3498db);
         }
 
         .never-section {
-            background: linear-gradient(135deg, #fff8f8, #f8f8ff);
-            padding: 2rem;
-            border-radius: 15px;
+            background: linear-gradient(135deg, #fff8f8, #f8f8ff, #fffaf0);
+            padding: 2.5rem;
+            border-radius: 20px;
             margin: 2rem 0;
-            border: 2px solid #ecf0f1;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .never-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #e74c3c, #9b59b6);
         }
 
         .goals-section {
-            background: linear-gradient(135deg, #f8fff8, #fff8e1);
-            padding: 2rem;
-            border-radius: 15px;
+            background: linear-gradient(135deg, #f8fff8, #fff8e1, #f0f8ff);
+            padding: 2.5rem;
+            border-radius: 20px;
             margin: 2rem 0;
-            border: 2px solid #ecf0f1;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .goals-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #f39c12, #27ae60);
         }
 
         /* Floating action elements */
@@ -258,24 +451,33 @@
             position: fixed;
             right: 2rem;
             bottom: 2rem;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #3498db, #9b59b6);
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            font-size: 1.4rem;
+            box-shadow: 
+                0 8px 25px rgba(102, 126, 234, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.3);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
         .floating-element:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 
+                0 15px 40px rgba(102, 126, 234, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.5);
+        }
+
+        .floating-element:active {
+            transform: scale(1.05);
         }
 
         /* Responsive design */
@@ -286,20 +488,77 @@
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             h2 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
             
             .floating-element {
                 right: 1rem;
                 bottom: 1rem;
-                width: 50px;
-                height: 50px;
-                font-size: 1rem;
+                width: 60px;
+                height: 60px;
+                font-size: 1.2rem;
             }
+        }
+
+        /* Custom scroll bar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 6px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #764ba2, #f093fb);
+        }
+
+        /* Text selection styling */
+        ::selection {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        ::-moz-selection {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        /* Focus states for accessibility */
+        *:focus {
+            outline: 3px solid rgba(102, 126, 234, 0.5);
+            outline-offset: 2px;
+        }
+
+        /* Paragraph styling enhancements */
+        p {
+            text-align: justify;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+            color: #2c3e50;
+        }
+
+        p:first-of-type {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #34495e;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         /* Scroll indicator */
@@ -308,16 +567,25 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.3);
+            height: 5px;
+            background: rgba(255, 255, 255, 0.2);
             z-index: 1001;
+            backdrop-filter: blur(10px);
         }
 
         .scroll-progress {
             height: 100%;
-            background: linear-gradient(45deg, #3498db, #9b59b6);
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+            background-size: 200% 200%;
             width: 0%;
             transition: width 0.1s ease;
+            animation: progressGradient 3s ease infinite;
+        }
+
+        @keyframes progressGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
     </style>
 </head>
@@ -549,20 +817,33 @@
     </div>
 
     <script>
-        // Scroll progress indicator
+        // Scroll progress indicator with enhanced effects
         window.addEventListener('scroll', function() {
             const scrollTop = document.documentElement.scrollTop;
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrollPercentage = (scrollTop / scrollHeight) * 100;
             document.getElementById('scrollProgress').style.width = scrollPercentage + '%';
+
+            // Add parallax effect to container
+            const container = document.querySelector('.container');
+            const scrolled = window.pageYOffset;
+            const parallax = scrolled * 0.5;
+            container.style.transform = `translateY(${parallax}px)`;
         });
 
-        // Smooth scroll to top
+        // Enhanced smooth scroll to top with bounce effect
         function scrollToTop() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
+            
+            // Add click animation to floating button
+            const floatingBtn = document.querySelector('.floating-element');
+            floatingBtn.style.transform = 'scale(0.9) rotate(360deg)';
+            setTimeout(() => {
+                floatingBtn.style.transform = '';
+            }, 300);
         }
 
         // Add smooth scroll behavior to all internal links
@@ -572,50 +853,138 @@
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth'
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
         });
 
-        // Add intersection observer for animation on scroll
+        // Enhanced intersection observer with staggered animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    }, index * 100); // Stagger the animations
                 }
             });
         }, observerOptions);
 
         // Observe all sections for scroll animations
-        document.querySelectorAll('h2, h3, li').forEach(el => {
+        document.querySelectorAll('h2, h3, li, p').forEach((el, index) => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            el.style.transform = 'translateY(30px) scale(0.95)';
+            el.style.transition = `opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.05}s, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.05}s`;
             observer.observe(el);
         });
 
-        // Add typing effect to main title
+        // Enhanced typing effect with cursor
         const title = document.querySelector('h1');
         const titleText = title.textContent;
-        title.textContent = '';
+        title.innerHTML = '';
         let i = 0;
         
         function typeWriter() {
             if (i < titleText.length) {
-                title.textContent += titleText.charAt(i);
+                title.innerHTML += titleText.charAt(i);
                 i++;
-                setTimeout(typeWriter, 100);
+                setTimeout(typeWriter, 80);
+            } else {
+                // Add blinking cursor effect
+                title.innerHTML += '<span style="animation: blink 1s infinite;">|</span>';
+                setTimeout(() => {
+                    title.querySelector('span').remove();
+                }, 3000);
             }
         }
         
-        setTimeout(typeWriter, 500);
+        // Add CSS for blinking cursor
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes blink {
+                0%, 50% { opacity: 1; }
+                51%, 100% { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        setTimeout(typeWriter, 800);
+
+        // Add mouse movement parallax effect
+        document.addEventListener('mousemove', function(e) {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            // Subtle parallax effect on floating elements
+            const floatingElement = document.querySelector('.floating-element');
+            const moveX = (mouseX - 0.5) * 10;
+            const moveY = (mouseY - 0.5) * 10;
+            
+            floatingElement.style.transform += ` translate(${moveX}px, ${moveY}px)`;
+        });
+
+        // Add dynamic background color change based on scroll position
+        window.addEventListener('scroll', function() {
+            const scrollPercentage = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
+            const hue = Math.floor(240 + (scrollPercentage * 60)); // Transition from blue to purple
+            document.body.style.filter = `hue-rotate(${hue - 240}deg)`;
+        });
+
+        // Add click ripple effect to interactive elements
+        function createRipple(event) {
+            const button = event.currentTarget;
+            const ripple = document.createElement('span');
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
+            
+            button.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        }
+
+        // Add ripple effect CSS
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.4);
+                transform: scale(0);
+                animation: ripple-animation 0.6s linear;
+                pointer-events: none;
+            }
+            
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+
+        // Apply ripple effect to buttons and links
+        document.querySelectorAll('a, .floating-element').forEach(element => {
+            element.style.position = 'relative';
+            element.style.overflow = 'hidden';
+            element.addEventListener('click', createRipple);
+        });
     </script>
 </body>
 </html>
