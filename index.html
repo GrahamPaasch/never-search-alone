@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Career Journey & Vision</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,105 +13,60 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-            line-height: 1.7;
-            color: #1a202c;
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #f8fafc;
             min-height: 100vh;
-            position: relative;
-        }
-
-        /* Simplified background pattern */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        @keyframes sparkle {
-            from { transform: translateY(0px); }
-            to { transform: translateY(-100px); }
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            position: relative;
-            z-index: 2;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
+            padding: 4rem 2rem;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .header {
             text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            position: relative;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .header h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: 2.5rem;
             font-weight: 700;
+            color: #4f46e5;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             letter-spacing: -0.02em;
         }
 
         .subtitle {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: #64748b;
             font-weight: 400;
-            margin-top: 1rem;
         }
 
         h2 {
-            color: #1a202c;
-            font-size: 1.875rem;
+            color: #2d3748;
+            font-size: 1.75rem;
             font-weight: 600;
             margin: 3rem 0 1.5rem 0;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-            border-left: 4px solid #4f46e5;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            position: relative;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #4f46e5;
         }
 
         h3 {
-            color: #374151;
-            font-size: 1.5rem;
+            color: #4f46e5;
+            font-size: 1.4rem;
             font-weight: 600;
             margin: 2rem 0 1rem 0;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid #e5e7eb;
-            position: relative;
         }
 
-        h3::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: #4f46e5;
-            border-radius: 1px;
+        section {
+            margin: 3rem 0;
         }
 
         ul {
@@ -119,56 +75,21 @@
         }
 
         li {
-            margin: 1rem 0;
+            margin: 1.25rem 0;
             padding: 1.5rem;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            border-left: 4px solid #e5e7eb;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #4f46e5;
             transition: all 0.2s ease;
-            position: relative;
         }
 
         li:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-            border-left-color: #4f46e5;
-        }
-
-        .love-section li {
-            border-left-color: #059669;
-        }
-
-        .love-section li:hover {
-            border-left-color: #047857;
-        }
-
-        .hate-section li {
-            border-left-color: #dc2626;
-        }
-
-        .hate-section li:hover {
-            border-left-color: #b91c1c;
-        }
-
-        .strengths-section li {
-            border-left-color: #d97706;
-        }
-
-        .strengths-section li:hover {
-            border-left-color: #b45309;
-        }
-
-        .weaknesses-section li {
-            border-left-color: #7c3aed;
-        }
-
-        .weaknesses-section li:hover {
-            border-left-color: #6d28d9;
+            background: #f1f5f9;
+            transform: translateX(2px);
         }
 
         strong {
-            color: #1a202c;
+            color: #2d3748;
             font-weight: 600;
         }
 
@@ -185,79 +106,28 @@
             border-bottom-color: #3730a3;
         }
 
-        a:focus {
-            outline: 2px solid #4f46e5;
-            outline-offset: 2px;
-            border-radius: 2px;
+        .intro-text {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #edf2f7;
+            border-radius: 8px;
+            border-left: 4px solid #4f46e5;
         }
 
-        hr {
-            border: none;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
-            margin: 3rem 0;
-        }
-
-        .requirements-section,
-        .never-section,
-        .goals-section {
+        .section-content {
             background: #ffffff;
             padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-        }
-
-        .requirements-section {
-            border-left: 4px solid #059669;
-        }
-
-        .never-section {
-            border-left: 4px solid #dc2626;
-        }
-
-        .goals-section {
-            border-left: 4px solid #d97706;
-        }
-
-        /* Floating action button */
-        .floating-element {
-            position: fixed;
-            right: 2rem;
-            bottom: 2rem;
-            width: 56px;
-            height: 56px;
-            background: #4f46e5;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.25rem;
-            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            z-index: 1000;
-            border: none;
-        }
-
-        .floating-element:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(79, 70, 229, 0.4);
-            background: #3730a3;
-        }
-
-        .floating-element:focus {
-            outline: 3px solid rgba(79, 70, 229, 0.5);
-            outline-offset: 2px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin-top: 1rem;
         }
 
         /* Responsive design */
         @media (max-width: 768px) {
             .container {
-                margin: 1rem;
-                padding: 1.5rem;
+                padding: 2rem 1rem;
             }
             
             .header h1 {
@@ -266,56 +136,11 @@
             
             h2 {
                 font-size: 1.5rem;
-                padding: 1rem;
             }
             
             h3 {
                 font-size: 1.25rem;
             }
-            
-            .floating-element {
-                right: 1rem;
-                bottom: 1rem;
-                width: 48px;
-                height: 48px;
-                font-size: 1rem;
-            }
-        }
-
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: rgba(0, 0, 0, 0.1);
-            z-index: 1001;
-        }
-
-        .scroll-progress {
-            height: 100%;
-            background: #4f46e5;
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-
-        /* Content spacing and typography */
-        p {
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            color: #374151;
-        }
-
-        p:first-of-type {
-            font-size: 1.125rem;
-            font-weight: 400;
-            color: #1f2937;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: #f9fafb;
-            border-radius: 8px;
-            border-left: 4px solid #4f46e5;
         }
 
         /* Focus management */
@@ -337,260 +162,97 @@
     </style>
 </head>
 <body>
-    <div class="scroll-indicator">
-        <div class="scroll-progress" id="scrollProgress"></div>
-    </div>
-    
     <div class="container">
         <div class="header">
             <h1>Career Journey & Vision</h1>
             <p class="subtitle">Building a Meaningful Future in Technology</p>
         </div>
 
-        <div class="love-section">
-            <p>I am an experienced technology professional. I graduated from a Cisco Network Academy in 2015,
-                worked full-time at a fortune 500 ISP from 2015 through 2020, and worked contracts at multiple FAANG companies
-                from 2020 to the present. I have held CCNP-RS and JNCIP-SP certifications. I attempted the JNCIE-SP.
-                I have a YouTube channel with nearly 1000 educational videos on a wide range of technology topics.
-                I volunteer for the Agile Learning Institute, a free non-profit coaching service.
-            </p>
-
-            <h3>What I love is...</h3>
-            <ul>
-                <li><strong>making an impact.</strong> In community college I loved my work helping other students
-                    stay in school, and go above and beyond in the classroom. I had many students thank me for my support, claiming
-                    that they might not have made it through their classes if not for my help. I was assigned a special case student
-                    with a multitude of special needs, on the verge of dropping out, and through my tutoring methods this student
-                    not only completed their overdue work to pass their class and stay in school, but also made it out to a special 
-                    activity to visit a local company, something their disability had prevented them from doing.</li>
-
-                <li><strong>being fully absorbed in meaningful tasks driven by genuine passion.</strong> As somebody who's first career
-                    ambition was to become a professional viola player for a major city orchestra, I have a unique aptitude for grueling
-                    practice and performance. I have been there done that when it comes to high pressure performances and I know the power
-                    of high quality practicing, especially when enhanced by world class teachers and mentors. I have given a wide variety
-                    of performances, both in music and in juggling. I have totally and completely bombed. I have totally and completely nailed
-                    it. I have heard people scoff at me while I was performing, totally disgusted with how badly I was performing. I have
-                    had people approach me wide-eyed with their mouths agape, telling me my performance was unbelievable, one of the best
-                    performances they'd ever seen. I know what makes good performances good, and bad performances bad.</li>
-
-                <li><strong>good habits.</strong> The science has proven that lifestyle is a significant
-                    factor in longevity. I believe in whole food plant based diets, exercise, mindfulness, positive social connections,
-                    and high quality sleep. I love working alongside like minded individuals. I am passionate about my hobbies.
-                    I am passionate about the potential of AI to improve the lives of human beings.</li>
-            </ul>
+        <div class="intro-text">
+            I'm an experienced technology professional with 10 years in networking, holding CCNP-RS and JNCIP-SP certifications. I've worked at Fortune 500 ISPs and FAANG companies, created nearly 1000 educational videos, and volunteer as a coach for the Agile Learning Institute.
         </div>
 
-        <div class="hate-section">
-            <h3>What I hate is...</h3>
-            <ul>
-                <li><strong>existential regret.</strong> I want to feel like I made the right choices in life.
-                    I want to look back upon life and feel confident that if I went back, I would make the same
-                    decisions I made before, because they were the best decisions to make given the information,
-                    access, and opportunities available to work with at the time. I want to be guided by the right
-                    mentors and environments that share my same set of values.</li>
-
-                <li><strong>modern day American values.</strong> I am deeply troubled by the authoritarian
-                    road I see my country traveling down. I am a believer in strong United States institutions.
-                    I want value for tax dollars. I want to see tax dollars being used to create robust
-                    public services, such as libraries, education, business credits, healthcare, infrastructure,
-                    child care, and other services that improve the quality of life for all citizens, not just simply
-                    military and police. I want taxes to be collected fairly and white collar crimes to be prosecuted.
-                    I want the USA to be a leader in AI safety and alignment, ensuring the values of liberal democracy
-                    are protected and promoted.</li>
-
-                <li><strong>having no drive or passion.</strong> I need a why. I need to feel
-                    motivated and inspired by my work, and I need to see how it aligns with my
-                    values and goals. I need my work to make a real impact in the world.</li>
-            </ul>
-        </div>
-
-        <div class="requirements-section">
-            <h2>For me to take a job it must...</h2>
-            <p><strong>improve my quality of life.</strong> There's a lot of room for
-            improvement in my life right now, but I'm envisioning a job that is either
-            fully remote or where I have only a short walk to and from the office in a
-            town that shares my passions.</p>
-            
-            <p><strong>further my career goals.</strong> I am an experienced technology
-            professional, entering my 2nd decade of experience. I want by the end of
-            this 2nd decade to earn more than $200,000/year in salary, achieve an
-            expert level set of skills, either via CCIE/JNCIE certification or a master's
-            degree, and stay relevant in the dawning of the age of AI.</p>
-            
-            <p><strong>respect my extra challenges in life.</strong> I have a Bipolar 1
-            diagnosis. I need reasonable accommodations in order to have regular doctor
-            appointments, pick up my medications, and maintain basic health habits in life.
-            Most importantly I need to make sleep the number one priority in my life and
-            not sacrifice it for work. I need reasonable accommodations and not immediate
-            dismissal or disciplinary actions for behaviors where disability is at play. I
-            understand it is my responsibility to properly manage my health. This is
-            why I am so careful in which jobs I will and will not take.</p>
-        </div>
-
-        <div class="never-section">
-            <h2>I would never take a job that...</h2>
-            <ul>
-                <li><strong>separates me from my passions.</strong> I'm a passionate
-                    musician and juggler, and I want to be able to pursue those interests
-                    alongside my work, meaning I need to be done with work by 6pm to attend
-                    rehearsals, practices, and performances. Additionally, I need to live
-                    in a location that supports my artistic endeavors, rather than one devoid
-                    of like minded people. I need my location to have any or all combinations
-                    of an easily accessible juggling club, shona music scene, or thriving
-                    amateur classical music scene.</li>
-
-                <li><strong>is more trouble than it's worth.</strong> I'd rather not
-                    work for the sake of work. I want a clear purpose, goal, and direction.
-                    I want to earn an income with which I can properly plan and design my
-                    life. I value personal freedom above all else. A job that locks me into
-                    a rigid schedule or location would be unacceptable. Living paycheck to
-                    paycheck is unacceptable. I want a job that offers a plan for retirement,
-                    such as a high company match on a 401k or high value stock options.</li>
-
-                <li><strong>works for the problem rather than on the solution.</strong>
-                    I want my work to be meaningful and impactful. I want to work on solutions
-                    to problems like climate change, social inequality, access to education, ai
-                    alignment, mental health, longevity, and other issues that matter to me. I
-                    want my time and effort to serve the greater common good.</li>
-
-                <li><strong>does not respect sleep.</strong> I cannot be on call 24/7. I have
-                    to maintain a regular sleep schedule and other standard healthy habits in
-                    order to manage my disability.</li>
-            </ul>
-        </div>
-
-        <div class="strengths-weaknesses-section">
-            <h2>I have a multitude of strengths and weaknesses that define what I bring to the table
-                as a professional working for an organization...</h2>
-
-            <div class="strengths-section">
-                <h3>One of my strengths is...</h3>
+        <section>
+            <h2>What I Value</h2>
+            <div class="section-content">
                 <ul>
-                    <li><strong>technical ability.</strong> I have a genuine passion for
-                        technology. I went above and beyond in my career by earning CCNP-RS and
-                        JNCIP-SP certifications. I continuously seek to expand my knowledge and
-                        skills in the field, learning about DevOps, Cloud, AI Engineering, and
-                        other emerging technologies.</li>
+                    <li><strong>Making an impact.</strong> I'm passionate about helping others succeed, whether through mentoring students or creating educational content that makes complex topics accessible.</li>
                     
-                    <li><strong>Deep Network Engineering Expertise:</strong> 10 years of
-                        networking experience. Passed the CCNP Enterprise and JNCIP Service
-                        Provider exams. Attempted JNCIE.</li>
+                    <li><strong>Deep focus on meaningful work.</strong> Having trained as a classical musician, I understand the power of deliberate practice and high-quality performance under pressure.</li>
                     
-                    <li><strong>Life Long Learner:</strong> Nearly 1000 educational videos
-                        posted on my
-                        <a href="https://www.youtube.com/channel/UCg3oUjrSYcqsL9rGk1g_lPQ">YouTube channel</a>,
-                        covering a wide range of topics from networking to
-                        Python programming to Mindfulness Based Stress Reduction.</li>
-                    
-                    <li><strong>Leadership & Mentorship:</strong> I volunteer for the
-                        <a href="https://agile-learning.institute/">Agile Learning Institute</a>,
-                        a free non-profit coaching service. I worked as a teaching assistant
-                        while in networking school.</li>
-                    
-                    <li><strong>AI Realist: </strong>I have
-                        <a href="https://situational-awareness.ai/">situational awareness</a> of
-                        the decade ahead regarding the impact of AI development. I participate on
-                        <a href="https://huggingface.co/gpaasch">Hugging Face</a> and use AI
-                        everyday to improve my life, especially for mental health.</li>
-                    
-                    <li><strong>Community Engagement:</strong> I am a core member of the
-                        <a href="https://juggling.place.org/">Texas Juggling Society</a> and the
-                        <a href="https://www.ctmorchestra.org/">Central Texas Medical Orchestra</a>.</li>
-                    
-                    <li><strong>Acknowledgment of Weakness: </strong> I recognize that I have
-                        areas for growth, particularly regarding my disability diagnoses. I
-                        actively research and implement strategies to address these
-                        challenges. I regularly see relevant, licensed, and qualified
-                        professionals for support. I do my best to be a good patient and not
-                        have any unforced errors in my treatment.</li>
+                    <li><strong>Healthy lifestyle habits.</strong> I believe in whole food plant-based nutrition, exercise, mindfulness, quality sleep, and positive social connections as foundations for success.</li>
                 </ul>
             </div>
-            </div>
+        </section>
 
-            <div class="weaknesses-section">
-                <h3>Weaknesses</h3>
+        <section>
+            <h2>What I Avoid</h2>
+            <div class="section-content">
                 <ul>
-    <li><strong>Social Connectiveness:</strong> I am mired by a number of mental
-      health challenges, which makes me the perpetual odd man out. Included in
-      my diagnoses is excoration disorder, which can be upsetting for others to
-      witness. Since my number one value is health, physical and mental, I take
-      my well-being seriously and seek environments that support it, which can
-      limit my opportunities. I lack a clear and consistent mental model of which
-      environments are conducive to my success and which are not.</li>
-    <li><strong>Limited Cloud Experience:</strong> Primarily on-prem networking
-      background, with limited hands-on cloud experience (AWS, Azure, GCP).
-      Actively working to close this gap through self-study and labs, but finding
-      myself mired with challenges in motivation to study.</li>
-    <li><strong>Limited Software Best-Practice Experience:</strong> Much of my
-      coding has been "glue and duct tape." The difference between my education
-      in networking and in coding is stark. I am actively improving code
-      quality and testing skills via autodidactic means, but I struggle to feel
-      confident in my abilities.</li>
-    <li><strong>Selective Opportunity Focus:</strong> Strong preferences (remote
-      work, values alignment, health management compatibility) limit immediate
-      opportunities. May not align well with what the job market has to offer,
-      especially in the fields where I have the most qualifications.</li>
+                    <li><strong>Work without purpose.</strong> I need clear goals and direction that align with my values and contribute to meaningful outcomes.</li>
+                    
+                    <li><strong>Environments that compromise health.</strong> As someone managing Bipolar 1, I prioritize sleep, regular healthcare access, and supportive work cultures.</li>
+                    
+                    <li><strong>Geographic isolation from my passions.</strong> I need access to music communities and juggling groups to maintain work-life balance.</li>
                 </ul>
             </div>
-        </div>
+        </section>
 
-        <div class="goals-section">
-            <h2>🎯 Your Career Goals (Short-Term and Long-Term)</h2>
-            <ul>
-                <li><strong>Short-Term Career Goal - Pivot Away from Traditional Network
-                    Engineering:</strong> Transition into modern future proof roles like
-                    AI Engineering, AI Infrastructure, Cloud Engineering, or Cyber Security.
-                    Use AI to make enough profit from a micro-saas or other sort of vibe
-                    coded project to collect a sort of "universal basic income" that
-                    allows me to work on my passions without worrying about financial security.</li>
-                
-                <li><strong>Long-Term Vision - Entrepreneurship and Leadership:</strong>
-                    Start my own ai-native tech company that reflects my values, with a world-class
-                    people-first culture and a remote-first approach that innovates and
-                    redefines what it means to work. Innovate and create a highly lucrative
-                    and profitable niche that leverages the AI revolution, especially for the 
-                    application of the ability for AI to teach humans. For example, adult
-                    music lessons. People may find themselves drawn to learning music in a
-                    more personalized and flexible way, using AI-driven tools and platforms
-                    that cater to their individual needs and preferences. They might have more
-                    time and resources to devote to practice and skill development for their
-                    own personal satisfaction, if AI delivers upon its promises, leading to a
-                    highly profitable niche area for a business. A VR video gaming company
-                    could leverage AI to create personalized gaming experiences that improve
-                    people's lives on a fundamental level. Trauma reversing experiences. I am 
-                    inspired by 
-                    <a href="https://voyageaustin.com/interview/community-highlights-meet-john-mcclellan-of-andromeda-entertainment/">
-                    John McClellan</a>, who shares a lot of similar passions as me and who I 
-                    have spent a lot of time juggling with, but I am concerned that my past
-                    failures with education and direction may have hindered my ability to
-                    achieve similar success. I believe in education. I think continuing my 
-                    formal education may be an important step forward.</li>
-            </ul>
-        </div>
-    </div>
+        <section>
+            <h2>Job Requirements</h2>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Quality of life improvement.</strong> Remote work or walkable office location in a community that supports my interests.</li>
+                    
+                    <li><strong>Career advancement path.</strong> Opportunities to reach $200K+ salary, achieve expert certifications or advanced degree, and stay current with AI developments.</li>
+                    
+                    <li><strong>Health accommodations.</strong> Flexible schedule for medical appointments, sleep-first culture, and understanding of disability-related needs.</li>
+                </ul>
+            </div>
+        </section>
 
-    <div class="floating-element" onclick="scrollToTop()" title="Back to top">
-        ↑
+        <section>
+            <h2>Key Strengths</h2>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Technical expertise.</strong> Deep networking knowledge with CCNP Enterprise and JNCIP Service Provider certifications, plus growing skills in DevOps and AI.</li>
+                    
+                    <li><strong>Teaching and mentorship.</strong> <a href="https://www.youtube.com/channel/UCg3oUjrSYcqsL9rGk1g_lPQ">YouTube channel</a> with educational content and volunteer coaching through the <a href="https://agile-learning.institute/">Agile Learning Institute</a>.</li>
+                    
+                    <li><strong>AI awareness.</strong> Active on <a href="https://huggingface.co/gpaasch">Hugging Face</a> and integrating AI tools for productivity and mental health support.</li>
+                    
+                    <li><strong>Community leadership.</strong> Core member of <a href="https://juggling.place.org/">Texas Juggling Society</a> and <a href="https://www.ctmorchestra.org/">Central Texas Medical Orchestra</a>.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Areas for Growth</h2>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Cloud experience.</strong> Transitioning from on-premises networking to hands-on experience with AWS, Azure, and GCP platforms.</li>
+                    
+                    <li><strong>Software development practices.</strong> Building skills in code quality, testing, and development best practices beyond "glue and duct tape" solutions.</li>
+                    
+                    <li><strong>Social connectivity.</strong> Managing mental health challenges while building professional relationships and finding supportive work environments.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Career Goals</h2>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Short-term pivot.</strong> Transition into AI Engineering, Cloud Infrastructure, or Cybersecurity roles. Explore micro-SaaS opportunities for financial flexibility.</li>
+                    
+                    <li><strong>Long-term vision.</strong> Build an AI-native company with people-first culture and remote-first approach. Focus on AI-powered education, particularly personalized learning experiences.</li>
+                </ul>
+            </div>
+        </section>
     </div>
 
     <script>
-        // Scroll progress indicator
-        window.addEventListener('scroll', function() {
-            const scrollTop = document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollPercentage = (scrollTop / scrollHeight) * 100;
-            document.getElementById('scrollProgress').style.width = scrollPercentage + '%';
-        });
-
-        // Smooth scroll to top
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Enhanced smooth scroll for internal links
+        // Simple smooth scroll functionality
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -602,70 +264,6 @@
                     });
                 }
             });
-        });
-
-        // Intersection observer for subtle scroll animations
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Apply scroll animations to content elements
-        document.querySelectorAll('h2, h3, li, .requirements-section, .never-section, .goals-section').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Simple typing effect for the main title
-        function initTypingEffect() {
-            const title = document.querySelector('.header h1');
-            if (!title) return;
-            
-            const titleText = title.textContent;
-            title.textContent = '';
-            let i = 0;
-            
-            function typeWriter() {
-                if (i < titleText.length) {
-                    title.textContent += titleText.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 50);
-                }
-            }
-            
-            setTimeout(typeWriter, 300);
-        }
-
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            initTypingEffect();
-            
-            // Add keyboard navigation for floating button
-            const floatingBtn = document.querySelector('.floating-element');
-            if (floatingBtn) {
-                floatingBtn.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        scrollToTop();
-                    }
-                });
-                
-                // Make it focusable
-                floatingBtn.setAttribute('tabindex', '0');
-                floatingBtn.setAttribute('role', 'button');
-                floatingBtn.setAttribute('aria-label', 'Scroll to top');
-            }
         });
     </script>
 </body>
